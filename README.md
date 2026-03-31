@@ -1,4 +1,4 @@
-# 🎵 Note Decorator
+# Note Decorator
 
 This project is a **Note Decorator**, a minimalist web application designed to help musicians practice and memorize note names.
 
