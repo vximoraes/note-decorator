@@ -96,8 +96,10 @@ body {
     border-radius: var(--radius-lg);
 }
 
-.theme-toggle:hover {
-    background: var(--accent);
+@media (hover: hover) and (pointer: fine) {
+    .theme-toggle:hover {
+        background: var(--accent);
+    }
 }
 
 .theme-toggle:active {
@@ -168,9 +170,11 @@ body {
     cursor: pointer;
 }
 
-.option-btn:hover {
-    background-color: var(--accent);
-    border-color: var(--ring);
+@media (hover: hover) and (pointer: fine) {
+    .option-btn:hover {
+        background-color: var(--accent);
+        border-color: var(--ring);
+    }
 }
 
 .option-btn:active {
