@@ -80,8 +80,8 @@ body {
 }
 
 #lang-toggle {
-    font-weight: 600;
-    font-size: 0.875rem;
+    font-weight: 500;
+    font-size: 0.75rem;
 }
 
 .theme-toggle {
@@ -89,8 +89,8 @@ body {
     border: none;
     color: var(--foreground);
     cursor: pointer;
-    min-width: 40px;
-    min-height: 40px;
+    min-width: 36px;
+    min-height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
