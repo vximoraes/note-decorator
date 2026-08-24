@@ -2,8 +2,8 @@
 
 This project is a **Note Decorator**, a minimalist web application designed to help musicians practice and memorize note names.
 
-![note-decorator-dark](./public/image%20copy.png)
-![note-decorator-light](./public/image.png)
+![note-decorator-dark](./public/note-decorator-dark.png)
+![note-decorator-light](./public/note-decorator-light.png)
 
 ## Technologies
 
