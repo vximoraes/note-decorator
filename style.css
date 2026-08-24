@@ -73,7 +73,7 @@ body {
 .app-header {
     position: absolute;
     top: var(--space-md);
-    right: var(--space-lg);
+    right: var(--space-md);
     display: flex;
     align-items: center;
     gap: var(--space-xs);
