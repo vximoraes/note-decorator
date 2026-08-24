@@ -137,7 +137,8 @@ function nextRound() {
 
 function handleAnswer(selectedId, btnElement) {
     if (isWaiting) return;
-    
+    btnElement.blur();
+
     if (selectedId === currentChallenge.id) {
         isWaiting = true;
         btnElement.classList.add('correct');
