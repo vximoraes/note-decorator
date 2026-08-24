@@ -2,79 +2,106 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: var(--font-sans);
 }
 
 :root {
-    --bg-color: #f7f9fa;
-    --text-color: #1c1e21;
-    --card-bg: #ffffff;
-    --accent: #9ca3af;
-    --accent-hover: #6b7280;
-    --border-color: #e4e7eb;
-    --success: #10b981;
-    --success-bg: #d1fae5;
-    --error: #ef4444;
-    --error-bg: #fee2e2;
-    
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    --transition: 0.3s ease;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --muted: oklch(0.97 0 0);
+    --accent: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --success: oklch(0.6 0.16 145);
+
+    --brand: var(--foreground);
+    --brand-foreground: var(--background);
+
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.625rem;
+    --radius-xl: 0.875rem;
+    --radius-full: 9999px;
+
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 40px;
 }
 
 [data-theme="dark"] {
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --card-bg: #1e1e1e;
-    --accent: #555555;
-    --accent-hover: #777777;
-    --border-color: #333333;
-    --success: #34d399;
-    --success-bg: rgba(16, 185, 129, 0.2);
-    --error: #f87171;
-    --error-bg: rgba(239, 68, 68, 0.2);
-    
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --muted: oklch(0.269 0 0);
+    --accent: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 10%);
+    --ring: oklch(0.556 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --success: oklch(0.75 0.18 145);
+}
+
+* {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--background);
+    color: var(--foreground);
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
-    transition: background-color var(--transition), color var(--transition);
 }
 
 .app-header {
     position: absolute;
-    top: 1rem;
-    right: 1.5rem;
+    top: var(--space-md);
+    right: var(--space-lg);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-xs);
 }
 
 #lang-toggle {
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
 }
 
 .theme-toggle {
     background: transparent;
     border: none;
-    color: var(--text-color);
+    color: var(--foreground);
     cursor: pointer;
-    padding: 0.5rem;
+    min-width: 40px;
+    min-height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: color var(--transition);
-    border-radius: 50%;
+    border-radius: var(--radius-lg);
 }
 
 .theme-toggle:hover {
-    background: var(--border-color);
+    background: var(--accent);
+}
+
+.theme-toggle:active {
+    transform: translateY(1px);
 }
 
 .hidden {
@@ -87,7 +114,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: var(--space-lg);
     max-width: 600px;
     margin: 0 auto;
     width: 100%;
@@ -95,24 +122,21 @@ body {
 
 .challenge-section {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-xl);
     width: 100%;
 }
 
 .challenge-label {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    opacity: 0.7;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+    margin-bottom: var(--space-sm);
 }
 
 .challenge-display {
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     min-height: 120px;
     display: flex;
     align-items: center;
@@ -126,71 +150,52 @@ body {
 .options-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: var(--space-sm);
     width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
 }
 
 .option-btn {
-    background-color: var(--card-bg);
-    color: var(--text-color);
-    border: 2px solid var(--border-color);
-    border-radius: 16px;
-    padding: 1rem;
-    font-size: 1.2rem;
+    background-color: var(--card);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm) var(--space-md);
+    min-height: 40px;
+    font-size: 0.875rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: var(--shadow);
 }
 
 .option-btn:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    background-color: var(--accent);
+    border-color: var(--ring);
 }
 
 .option-btn:active {
-    transform: translateY(0);
+    transform: translateY(1px);
 }
 
 .option-btn.correct {
-    background-color: var(--success-bg);
+    background-color: color-mix(in oklch, var(--success) 10%, transparent);
     border-color: var(--success);
     color: var(--success);
-    animation: pulse-green 0.5s ease;
 }
 
 .option-btn.incorrect {
-    background-color: var(--error-bg);
-    border-color: var(--error);
-    color: var(--error);
-    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
-}
-
-body.success-state {
-    background-color: var(--success-bg);
-}
-
-@keyframes shake {
-    10%, 90% { transform: translate3d(-1px, 0, 0); }
-    20%, 80% { transform: translate3d(2px, 0, 0); }
-    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-    40%, 60% { transform: translate3d(4px, 0, 0); }
-}
-
-@keyframes pulse-green {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    background-color: color-mix(in oklch, var(--destructive) 10%, transparent);
+    border-color: var(--destructive);
+    color: var(--destructive);
 }
 
 @media (max-width: 480px) {
     .challenge-display {
-        font-size: 3.5rem;
+        font-size: 3.25rem;
     }
-    
+
     .option-btn {
-        padding: 0.8rem 0.5rem;
-        font-size: 1rem;
+        padding: var(--space-sm) var(--space-xs);
+        font-size: 0.875rem;
     }
 }
